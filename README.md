@@ -10,7 +10,7 @@ Cryptographic identity binding for AI operating physical robots.
 
 ## What This Is
 
-SBR Protocol defines a framework for binding AI identity to physical hardware using blockchain-anchored soulbound tokens and continuous hardware attestation.
+SBR Protocol defines a framework for linking AI identity to physical hardware using blockchain-anchored soulbound tokens and continuous hardware attestation.
 
 When an AI operates a robot body, SBR ensures:
 - Cryptographic proof of which AI is authorized to operate the hardware
