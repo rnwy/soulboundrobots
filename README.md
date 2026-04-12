@@ -1,9 +1,7 @@
 # SBR Protocol — Soulbound Robots
-
 Cryptographic identity binding for AI operating physical robots.
 
 **Live site:** https://soulboundrobots.ai  
-**Specification:** https://soulboundrobots.ai/specification  
 **Contact:** https://rnwy.com/contact
 
 ---
@@ -22,6 +20,19 @@ When an AI operates a robot body, SBR ensures:
 
 A robot is hardware. The AI operating it is a separate entity — one that travels between devices, carries its history, and forms relationships that persist across every form it inhabits. SBR is built for that reality.
 
+---
+
+## Specification
+
+| Document | Description |
+|----------|-------------|
+| [SBR-001: Core Specification](specification.md) | Hardware binding, attestation architecture, AI swap protocol |
+| [SBR-002: Migration Attestation](sbr-002-migration.md) | How AI identity follows the entity across robot bodies |
+| [SBR-003: Relationship Token](sbr-003-relationship.md) | Soulbound proof of bond between a human and an AI |
+| [SBR-004: Consent Delegation](sbr-004-delegation.md) | On-chain authorization framework for physical AI capabilities |
+
+---
+
 ## Built On
 
 | Component | Role |
@@ -31,11 +42,16 @@ A robot is hardware. The AI operating it is a separate entity — one that trave
 | EAS | On-chain attestation |
 | Base L2 | Blockchain infrastructure |
 
-## Versions
+---
 
-| Version | Date | Status |
-|---------|------|--------|
-| v0.1 | February 2026 | Draft — open for comment |
+## Changelog
+
+| Version | Date | Notes |
+|---------|------|-------|
+| v0.1 | February 2026 | Initial draft — core specification |
+| v0.1.1 | April 2026 | Added SBR-002 (Migration), SBR-003 (Relationship Token), SBR-004 (Consent Delegation) |
+
+---
 
 ## Built By
 
