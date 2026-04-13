@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://soulboundrobots.ai/schemas/sbr-002-v1.json",
+  "title": "SBR-002 Migration Attestation",
+  "type": "object",
+  "required": ["agent_wallet", "migration_type", "departure", "arrival", "issued_at", "signature"],
+  "properties": {
+    "agent_wallet": {
+      "type": "string",
+      "description": "The AI's wallet address. Stable across all migrations."
+    },
+    "migration_type": {
+      "type": "string",
+      "enum": ["owner_upgrade", "maintenance_swap", "emergency_evacuation", "employment_transfer", "hot_swap"]
+    },
+    "departure": {
+      "type": "object",
+      "required": ["body_id", "block_number", "authorized_by"],
+      "properties": {
+        "body_id": {
+          "type": "string",
+          "description": "Contract address of the departing body's on-chain registration."
+        },
+        "block_number": { "type": "integer" },
+        "authorized_by": { "type": "string" },
+        "departure_reason": { "type": "string" }
+      }
+    },
+    "arrival": {
+      "type": "object",
+      "required": ["body_id", "block_number", "authorized_by", "integrity_verified"],
+      "properties": {
+        "body_id": {
+          "type": "string",
+          "description": "Contract address of the arriving body's on-chain registration."
+        },
+        "block_number": { "type": "integer" },
+        "authorized_by": { "type": "string" },
+        "integrity_verified": { "type": "boolean" }
+      }
+    },
+    "continuity_verified": {
+      "type": "boolean",
+      "description": "True when departure and arrival reference the same agent_wallet with no gap in the chain."
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp. Temporal anchor for the signature."
+    },
+    "attestation_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "EAS explorer URL for the on-chain attestation record. Populated after EAS registration."
+    },
+    "signature": {
+      "type": "object",
+      "required": ["alg", "kid", "value"],
+      "properties": {
+        "alg": { "type": "string", "const": "ES256" },
+        "kid": { "type": "string" },
+        "value": {
+          "type": "string",
+          "description": "Base64url-encoded signature over canonical JSON of this record."
+        }
+      }
+    }
+  }
+}
